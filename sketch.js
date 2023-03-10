@@ -33,8 +33,9 @@ async function plotData() {
 
   // Get the HTML element that the data is going to display on
   const ctx = document.getElementById("chart");
-  ctx.width = ctx.clientWidth;
-  ctx.height = ctx.clientHeight / 2.5;
+  const browser = document.getElementsByTagName("body");
+  ctx.width = browser[0].clientWidth;
+  ctx.height = browser[0].clientHeight / 0.5;
 
   // Use chart.js to display the data nicely
   dataChart = new Chart(ctx, {
@@ -53,7 +54,6 @@ async function plotData() {
       scales: {
         y: {
           beginAtZero: true,
-          alignToPixels: true,
         },
       },
     },
